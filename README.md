@@ -26,11 +26,11 @@ Pasos para la ejecución del proyecto.
 3. Abrir con el IDE Android Studio
 
 4.Buscar package y reemplazar texto por API Key
-util/Constants/API_KEY = "reemplazarEstoPorAPI_KEY"
+util/Constants/API_KEY = "replace_this_with_API_Key"
 
 # Caracteristicas
 
-- home: Clases para crear el home de la app el cual está compuesto de un activity con recyclerView y
+- home: Clases para crear el home de la app el cual está compuesto de un activity con recyclerView, paginacion de lista de pelicuas y
   un toolbar de busqueda.
 - detail: Aquí tenemos las clase para el detalle de las peliculas.
 - search: Este Activity se encarga de presentar las búsquedas, ya sea desde home, o cualquier intent
