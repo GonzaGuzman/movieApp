@@ -1,6 +1,6 @@
 package com.zalo.movieappchallenge.util
 
-const val API_KEY =  "reemplazarEstoPorAPI_KEY"
+const val API_KEY = "replace_this_with_API_Key"
 
 const val KEY_SEARCH = "key_search"
 const val MOVIE_ID = "movie_id"

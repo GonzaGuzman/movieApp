@@ -3,7 +3,6 @@ package com.zalo.movieappchallenge.search.searchPresenter
 import android.content.Intent
 import android.util.Log
 import com.zalo.movieappchallenge.search.searchDatasource.SearchDatasource
-import com.zalo.movieappchallenge.search.searchDatasource.SearchDatasourceImplements
 import com.zalo.movieappchallenge.util.KEY_SEARCH
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 

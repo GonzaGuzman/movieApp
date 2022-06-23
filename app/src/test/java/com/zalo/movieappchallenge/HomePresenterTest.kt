@@ -40,7 +40,7 @@ class HomePresenterTest {
     }
 
     @Test
-    fun `initComonent and getListMovies success`() {
+    fun `initComponent and getListMovies success`() {
         //GIVEN
         val page = ONE
         getListMoviesSuccessfully()
@@ -53,7 +53,7 @@ class HomePresenterTest {
     }
 
 @Test
-    fun `initComonent and getListMovies fail`() {
+    fun `initComponent and getListMovies fail`() {
         //GIVEN
         val page = ONE
         getListMoviesUnsuccessfully()

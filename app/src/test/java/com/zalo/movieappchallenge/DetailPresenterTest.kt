@@ -2,7 +2,6 @@ package com.zalo.movieappchallenge
 
 import android.content.Intent
 import android.content.res.Resources
-import android.util.Log
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.argumentCaptor
 import com.nhaarman.mockito_kotlin.verify

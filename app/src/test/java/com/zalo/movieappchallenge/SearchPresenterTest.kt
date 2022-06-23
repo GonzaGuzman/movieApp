@@ -6,7 +6,6 @@ import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.argumentCaptor
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
-import com.zalo.movieappchallenge.network.models.Movie
 import com.zalo.movieappchallenge.network.models.MoviesResponse
 import com.zalo.movieappchallenge.search.searchDatasource.SearchDatasource
 import com.zalo.movieappchallenge.search.searchPresenter.SearchPresenter
@@ -27,9 +26,6 @@ class SearchPresenterTest {
 
     @Mock
     private lateinit var searchDataSource: SearchDatasource
-
-    @Mock
-    private lateinit var resources: Resources
 
     @Mock
     private lateinit var mockDisposable: Disposable
