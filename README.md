@@ -1,6 +1,6 @@
 # THE MOVIE DATABASE Challenge
 
-Este repositorio contiene el challenge técnico de MercadoLibre, creado por Gonzalo Guzmán.
+Este repositorio contiene el challenge tecnico de Alkemy.org , creado por Gonzalo Guzmán.
 Contacto https://www.linkedin.com/in/gonzalo-guzman/
 
 # Primeros pasos
