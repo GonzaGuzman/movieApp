@@ -7,4 +7,7 @@
     <string name="highest_rated_movies">Highest rated movies of all time</string>
     <string name="upcoming">Upcoming</string>
     <string name="stay_updated">Stay updated with the latest movies</string>
+    <string name="error_message">UPS ALGO SALIO MAL</string>
+    <string name="movie_saved">Movie save in movileDatabase</string>
+    <string name="search_title">Buscar Titulo</string>
 </resources>

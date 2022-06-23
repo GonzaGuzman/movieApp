@@ -1,13 +1,15 @@
 package com.zalo.movieappchallenge.network.models
 
+import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-
 @Entity(tableName = "movies")
 data class Movie(
     @PrimaryKey
+    @NonNull
+    var numberItem: Int,
     @SerializedName("id") val id: Long,
     @SerializedName("title") val title: String,
     @SerializedName("overview") val overview: String,

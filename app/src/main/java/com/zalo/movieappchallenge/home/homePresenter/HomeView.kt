@@ -7,7 +7,6 @@ interface HomeView {
     fun onPopularMoviesFetched(movies: List<Movie>)
     fun showSnackBar(message: String)
     fun loadRecycler()
-   // fun getMoviesByPage(page:Int)
     fun getMoviesByPage(page: Int)
     fun textSearch()
 }

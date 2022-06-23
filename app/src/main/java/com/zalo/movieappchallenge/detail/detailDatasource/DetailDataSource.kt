@@ -21,4 +21,6 @@ interface DetailDataSource {
         onSuccess: () -> Unit,
         onError: (Throwable) -> Unit,
     ): Disposable
+    fun setCountItems(itemNumber: Int)
+    fun getCountItems(): Int
 }

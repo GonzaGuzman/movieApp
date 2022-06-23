@@ -42,11 +42,19 @@ class DetailDataSourceImplements(private val detailRepository: DetailRepository)
         onSuccess: () -> Unit,
         onError: (Throwable) -> Unit,
     ): Disposable {
-       return detailRepository.insert(movie)
-           .subscribeOn(Schedulers.io())
-           .observeOn(AndroidSchedulers.mainThread())
-           .subscribe(
-               {onSuccess()},
-               {onError(it)})
+        return detailRepository.insert(movie)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                { onSuccess() },
+                { onError(it) })
+    }
+
+    override fun setCountItems(itemNumber: Int) {
+       detailRepository.setCountItems(itemNumber)
+    }
+
+    override fun getCountItems(): Int {
+        return detailRepository.getCountItems()
     }
 }

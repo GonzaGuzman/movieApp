@@ -1,33 +1,32 @@
 package com.zalo.movieappchallenge.search.searchPresenter
 
 import android.content.Intent
-import com.zalo.movieappchallenge.detail.detailActivity.KEY_SEARCH
+import android.util.Log
+import com.zalo.movieappchallenge.search.searchDatasource.SearchDatasource
 import com.zalo.movieappchallenge.search.searchDatasource.SearchDatasourceImplements
+import com.zalo.movieappchallenge.util.KEY_SEARCH
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
+const val TAG = "SearchPresenter"
 
 class SearchPresenter(
     private val searchView: SearchView,
-    private val searchDatasourceImplements: SearchDatasourceImplements,
+    private val searchDatasource: SearchDatasource,
 ) : SearchPresenterActions {
     private val composite = CompositeDisposable()
 
-
     override fun searchMovies(intent: Intent) {
-        val search = intent.getStringExtra(KEY_SEARCH)
-        if (!search.isNullOrEmpty()) {
+        val search = intent.getStringExtra(KEY_SEARCH) ?: ""
+        with(searchView) {
             composite.add(
-                searchDatasourceImplements.searchMovie(search,
-                    { searchView.loadRecycler()
-                        searchView.onPopularMoviesFetched(it.movies)
+                searchDatasource.searchMovie(search,
+                    {
+                        loadRecycler()
+                        onPopularMoviesFetched(it.movies)
                     },
-                    { searchView.showSnackBar(it.message.toString())})
+                    { Log.e(TAG, it.message.toString()) })
             )
-        }else{
-            searchView.showSnackBar("EL CAMPO DE BUSQUEDA SE ECUENTRA VACIO, POR FAVOR INGRESE BUSQUEDA")
+            textSearch()
         }
-        searchView.textSearch()
     }
-
-
 }

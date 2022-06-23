@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.zalo.movieappchallenge.adapter.MovieAdapter
 import com.zalo.movieappchallenge.databinding.ActivityMainBinding
-import com.zalo.movieappchallenge.detail.detailActivity.KEY_SEARCH
 import com.zalo.movieappchallenge.home.homeDataSource.HomeDataSourceImplements
 import com.zalo.movieappchallenge.home.homePresenter.HomePresenter
 import com.zalo.movieappchallenge.home.homePresenter.HomeView
@@ -17,7 +16,7 @@ import com.zalo.movieappchallenge.home.homeRepository.HomeRepository
 import com.zalo.movieappchallenge.network.APIServiceImplements
 import com.zalo.movieappchallenge.network.models.Movie
 import com.zalo.movieappchallenge.search.searchActivity.SearchActivity
-
+import com.zalo.movieappchallenge.util.KEY_SEARCH
 
 class HomeActivity : AppCompatActivity(), HomeView {
     private lateinit var binding: ActivityMainBinding
@@ -67,7 +66,6 @@ class HomeActivity : AppCompatActivity(), HomeView {
                 val totalItemCount = gridLayoutManager.itemCount
                 val visibleItemCount = gridLayoutManager.childCount
                 val firstVisibleItem = gridLayoutManager.findFirstVisibleItemPosition()
-
                 if (!isLoading) {
                     if (firstVisibleItem + visibleItemCount >= totalItemCount / 2) {
                         binding.recyclerView.removeOnScrollListener(this)
@@ -79,7 +77,6 @@ class HomeActivity : AppCompatActivity(), HomeView {
             }
         })
     }
-
 
     override fun showSnackBar(message: String) {
         Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()

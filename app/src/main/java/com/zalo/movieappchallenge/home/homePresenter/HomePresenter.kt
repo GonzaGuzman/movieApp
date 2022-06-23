@@ -1,9 +1,12 @@
 package com.zalo.movieappchallenge.home.homePresenter
 
 import android.content.res.Resources
+import android.util.Log
+import com.zalo.movieappchallenge.R
 import com.zalo.movieappchallenge.home.homeDataSource.HomeDataSource
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
+const val TAG = "HomePresenter"
 
 class HomePresenter(
     private val homeView: HomeView,
@@ -22,12 +25,12 @@ class HomePresenter(
         compositeDisposable.add(
             homeDatasource.getListMovies(
                 page,
+                { homeView.onPopularMoviesFetched(it.movies) },
                 {
-                    homeView.onPopularMoviesFetched(it.movies)
-                }, { error -> homeView.showSnackBar(error.message.toString()) }
+                    homeView.showSnackBar(resources.getString(R.string.error_message))
+                    Log.e(TAG, it.message.toString())
+                }
             )
         )
     }
-
-
 }

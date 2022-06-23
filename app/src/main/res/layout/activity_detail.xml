@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
     android:background="@color/colorPrimary"
+    android:fillViewport="true"
     tools:context=".detail.detailActivity.DetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,8 +14,8 @@
 
         <ImageView
             android:id="@+id/movie_backdrop"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="@dimen/match_constraint"
             app:layout_constraintBottom_toBottomOf="@+id/backdrop_guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -23,11 +23,11 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/movie_poster_card"
-            android:layout_width="128dp"
-            android:layout_height="172dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
-            app:cardCornerRadius="4dp"
+            android:layout_width="@dimen/density128"
+            android:layout_height="@dimen/density200"
+            android:layout_marginStart="@dimen/density16"
+            android:layout_marginEnd="@dimen/density8"
+            app:cardCornerRadius="@dimen/density4"
             app:layout_constraintBottom_toBottomOf="@+id/backdrop_guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/backdrop_guideline">
@@ -44,17 +44,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.4" />
+            app:layout_constraintGuide_percent="0.5" />
 
         <TextView
             android:id="@+id/movie_title"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/density16"
+            android:layout_marginTop="@dimen/density16"
+            android:layout_marginEnd="@dimen/density16"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="@dimen/scaleable18"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/movie_poster_card"
@@ -64,8 +64,8 @@
             android:id="@+id/movie_release_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#757575"
-            android:textSize="12sp"
+            android:textColor="@color/grey_medium"
+            android:textSize="@dimen/scaleable12"
             app:layout_constraintStart_toStartOf="@+id/movie_title"
             app:layout_constraintTop_toBottomOf="@+id/movie_title" />
 
@@ -80,10 +80,11 @@
             android:id="@+id/movie_overview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:textColor="#E6FFFFFF"
+            android:layout_marginStart="@dimen/density16"
+            android:layout_marginTop="@dimen/density16"
+            android:layout_marginEnd="@dimen/density16"
+            android:textColor="@color/custom_white"
+            android:textSize="@dimen/scaleable18"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/movie_poster_title_barrier" />
@@ -93,7 +94,7 @@
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/density8"
             app:layout_constraintEnd_toEndOf="@+id/movie_poster_card"
             app:layout_constraintStart_toStartOf="@+id/movie_poster_card"
             app:layout_constraintTop_toBottomOf="@+id/movie_poster_card" />

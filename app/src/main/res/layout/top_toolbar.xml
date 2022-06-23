@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -11,25 +11,26 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInput"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textColorHint="@color/custom_grey"
             app:shapeAppearanceOverlay="@style/CircularText">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/density8"
                 android:background="@drawable/radius_edittext"
-                android:drawableRight="@drawable/ic_baseline_search_24"
-                android:inputType="text"
-                android:hint="Movie search"
+                android:drawableEnd="@drawable/ic_baseline_search_24"
+                android:hint="@string/search_title"
                 android:imeOptions="actionDone"
-                android:maxLines="1" />
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/scaleable20"
+                android:textStyle="bold|italic" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
     </androidx.appcompat.widget.Toolbar>
-
 </RelativeLayout>

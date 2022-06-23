@@ -5,7 +5,6 @@ import com.zalo.movieappchallenge.network.models.Movie
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
 
-
 @Dao
 interface MovieDao {
 

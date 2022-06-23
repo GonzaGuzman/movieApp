@@ -1,6 +1,5 @@
 package com.zalo.movieappchallenge.detail.detailPresenter
 
-
 import com.zalo.movieappchallenge.network.models.Movie
 
 interface DetailView {

@@ -3,12 +3,10 @@ package com.zalo.movieappchallenge.adapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.zalo.movieappchallenge.ImageURLBuilder
+import com.zalo.movieappchallenge.util.ImageURLBuilder
 import com.zalo.movieappchallenge.R
 import com.zalo.movieappchallenge.databinding.ItemMovieBinding
 import com.zalo.movieappchallenge.network.models.Movie
-
 
 class MovieViewHolder(movieView: View) : RecyclerView.ViewHolder(movieView) {
     private val binding = ItemMovieBinding.bind(movieView)
@@ -18,7 +16,6 @@ class MovieViewHolder(movieView: View) : RecyclerView.ViewHolder(movieView) {
             .load(ImageURLBuilder.getUrl(movie.posterPath))
             .placeholder(R.drawable.splash_background)
             .error(R.drawable.ic_splash_tmdb)
-            .transform(CenterCrop())
             .into(binding.ivMoviePoster)
     }
 }

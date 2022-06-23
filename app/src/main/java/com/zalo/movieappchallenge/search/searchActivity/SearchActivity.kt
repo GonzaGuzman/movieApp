@@ -3,25 +3,24 @@ package com.zalo.movieappchallenge.search.searchActivity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.zalo.movieappchallenge.adapter.MovieAdapter
 import com.zalo.movieappchallenge.databinding.ActivitySearchBinding
-import com.zalo.movieappchallenge.detail.detailActivity.KEY_SEARCH
 import com.zalo.movieappchallenge.network.APIServiceImplements
 import com.zalo.movieappchallenge.network.models.Movie
 import com.zalo.movieappchallenge.search.searchDatasource.SearchDatasourceImplements
 import com.zalo.movieappchallenge.search.searchPresenter.SearchPresenter
 import com.zalo.movieappchallenge.search.searchPresenter.SearchView
 import com.zalo.movieappchallenge.search.searchRepository.SearchRepository
-
+import com.zalo.movieappchallenge.util.KEY_SEARCH
 
 class SearchActivity : AppCompatActivity(), SearchView {
     private lateinit var binding: ActivitySearchBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: MovieAdapter
-    private var layoutManagerMgr = LinearLayoutManager(this)
     private val apiServiceImp = APIServiceImplements
     private val searchRepository = SearchRepository(apiServiceImp)
     private val searchDatasourceImplements = SearchDatasourceImplements(searchRepository)
@@ -36,15 +35,14 @@ class SearchActivity : AppCompatActivity(), SearchView {
 
     override fun loadRecycler() {
         recyclerView = binding.recyclerView
-        binding.recyclerView.layoutManager = layoutManagerMgr
+        binding.recyclerView.layoutManager = GridLayoutManager(this,2)
         adapter = MovieAdapter(mutableListOf())
         recyclerView.adapter = adapter
     }
 
     override fun onPopularMoviesFetched(movies: List<Movie>) {
-        adapter.appendMovies(movies)
+        adapter.appendMoviesSearch(movies)
     }
-
 
     override fun showSnackBar(message: String) {
         Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()

@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimary"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".home.homeActivity.HomeActivity">
 
     <include
@@ -14,9 +14,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:scrollbars="vertical"
+        android:layout_height="@dimen/match_constraint"
         android:background="@color/colorPrimary"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="@dimen/density48"
         android:layout_alignParentBottom="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

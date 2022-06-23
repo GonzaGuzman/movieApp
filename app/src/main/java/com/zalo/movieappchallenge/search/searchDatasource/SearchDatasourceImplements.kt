@@ -1,8 +1,6 @@
 package com.zalo.movieappchallenge.search.searchDatasource
 
-
 import com.zalo.movieappchallenge.network.models.MoviesResponse
-import com.zalo.movieappchallenge.search.searchDatasource.SearchDatasource
 import com.zalo.movieappchallenge.search.searchRepository.SearchRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.Disposable
