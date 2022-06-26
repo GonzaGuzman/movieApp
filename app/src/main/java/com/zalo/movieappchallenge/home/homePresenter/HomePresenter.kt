@@ -15,12 +15,14 @@ class HomePresenter(
 ) : HomePresenterActions {
     private val compositeDisposable = CompositeDisposable()
 
+    //inicia componentes de vista
     override fun initComponent(page: Int) {
         homeView.getMoviesByPage(page)
         homeView.loadRecycler()
         homeView.textSearch()
     }
 
+    //obtiene de API TMdb el listado de PopularMovies de la pagina indicada
     override fun getMovies(page: Int) {
         compositeDisposable.add(
             homeDatasource.getListMovies(

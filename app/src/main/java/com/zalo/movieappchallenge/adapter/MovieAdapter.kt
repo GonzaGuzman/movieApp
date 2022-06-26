@@ -8,7 +8,6 @@ import com.zalo.movieappchallenge.R
 import com.zalo.movieappchallenge.detail.detailActivity.DetailActivity
 import com.zalo.movieappchallenge.network.models.Movie
 import com.zalo.movieappchallenge.util.MOVIE_ID
-
 class MovieAdapter(private val movieList: MutableList<Movie>) :
     RecyclerView.Adapter<MovieViewHolder>() {
 
@@ -29,6 +28,7 @@ class MovieAdapter(private val movieList: MutableList<Movie>) :
 
     override fun getItemCount(): Int = movieList.size
 
+    //metodo actualiza movieList cuando cambia el tamaño de esta al cargar una nueva pagina
     fun appendMovies(movies: List<Movie>) {
         this.movieList.addAll(movies)
         notifyItemRangeInserted(
@@ -37,6 +37,7 @@ class MovieAdapter(private val movieList: MutableList<Movie>) :
         )
     }
 
+    //metodo que actualiza movieList cuando no se utiliza paginacion
     fun appendMoviesSearch(movies: List<Movie>) {
         this.movieList.addAll(movies)
         notifyDataSetChanged()

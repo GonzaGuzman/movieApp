@@ -7,6 +7,7 @@ import com.zalo.movieappchallenge.databinding.ActivitySplashBinding
 import com.zalo.movieappchallenge.home.homeActivity.HomeActivity
 import java.util.*
 
+//Activity que muestra logo de TMdb al iniciar la app
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
     override fun onCreate(savedInstanceState: Bundle?) {

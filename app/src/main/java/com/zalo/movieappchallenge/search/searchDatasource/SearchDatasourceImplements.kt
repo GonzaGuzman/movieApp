@@ -9,6 +9,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 class SearchDatasourceImplements(private val searchRepository: SearchRepository) :
     SearchDatasource {
 
+    //utiliza query para buscar un titulo en API TMdb
     override fun searchMovie(
         query: String,
         onSuccess: (responsive: MoviesResponse) -> Unit,

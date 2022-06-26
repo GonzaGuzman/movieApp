@@ -16,6 +16,7 @@ import com.zalo.movieappchallenge.detail.detailRepository.DetailRepository
 import com.zalo.movieappchallenge.network.APIServiceImplements
 import com.zalo.movieappchallenge.network.models.Movie
 
+//Activity encargado de mostrar detalles de una Movie
 class DetailActivity : AppCompatActivity(), DetailView {
 
     private lateinit var binding: ActivityDetailBinding
@@ -33,7 +34,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
         detailPresenter = DetailPresenter(this, detailDataSourceImplements, resources)
         detailPresenter.initComponent(intent)
     }
-
+// muestra por pantalla los atributos de movie
     override fun retrieverExtras(movie: Movie) {
         Glide.with(this)
             .load(ImageURLBuilder.getUrl(movie.backdropPath))
@@ -55,6 +56,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
         binding.movieOverview.text = movie.overview
     }
 
+    // imprime por pantalla mensaje en caso de falla
     override fun showSnackBar(message: String) {
         Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
     }

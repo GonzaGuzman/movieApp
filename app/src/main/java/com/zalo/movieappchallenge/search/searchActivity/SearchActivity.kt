@@ -32,6 +32,7 @@ class SearchActivity : AppCompatActivity(), SearchView {
         searchPresenter.searchMovies(intent)
     }
 
+    //carga vista de Recycler
     override fun loadRecycler() {
         recyclerView = binding.recyclerView
         binding.recyclerView.layoutManager = GridLayoutManager(this,2)
@@ -39,14 +40,19 @@ class SearchActivity : AppCompatActivity(), SearchView {
         recyclerView.adapter = adapter
     }
 
+
+    //actualiza la lista de adapter no paginado
     override fun onPopularMoviesFetched(movies: List<Movie>) {
         adapter.appendMoviesSearch(movies)
     }
 
+
+    // imprime por pantalla mensaje en caso de falla
     override fun showSnackBar(message: String) {
         Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
     }
 
+    //actualiza intent de a SearchActivity con la nueva busqueda proporcionada
     override fun textSearch() {
         val intent = Intent(this, SearchActivity::class.java)
         with(binding) {

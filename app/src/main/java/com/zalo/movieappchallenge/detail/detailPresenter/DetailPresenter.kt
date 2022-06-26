@@ -21,11 +21,12 @@ class DetailPresenter(
     private val compositeDisposable = CompositeDisposable()
     override fun initComponent(intent: Intent) {
         val id = intent.getLongExtra(MOVIE_ID, 0L)
-         if (!getMovieLocalDatabase(id)){
-             getMovieDetail(id)
-         }
+        if (!getMovieLocalDatabase(id)) {
+            getMovieDetail(id)
+        }
     }
 
+    //busca una movie en API TMdb a partir de su id
     override fun getMovieDetail(id: Long) {
         compositeDisposable.add(
             detailDataSource.getMovieDetail(id,
@@ -40,6 +41,7 @@ class DetailPresenter(
         )
     }
 
+    //busca una movie en database local a partir de su id
     override fun getMovieLocalDatabase(id: Long): Boolean {
         var flag = false
         compositeDisposable.add(
@@ -58,16 +60,19 @@ class DetailPresenter(
         return flag
     }
 
+    //inserta una nueva movie en database local
     override fun insertMovie(movie: Movie) {
-        movie.numberItem = dataBaseLimit(detailDataSource.getCountItems())
+        val numberItem = dataBaseLimit(detailDataSource.getCountItems())
+        val movieDb = movie.copy(numberItem = numberItem)
         compositeDisposable.add(
-            detailDataSource.insertMovie(movie,
+            detailDataSource.insertMovie(movieDb,
                 { Log.i(TAG, resources.getString(R.string.movie_saved)) },
                 { Log.e(TAG, it.message.toString()) }
             )
         )
     }
 
+    //setea el valor del contador de items gardados en database de acuerdo al limite de items a gardadar establecido
     override fun dataBaseLimit(num: Int): Int {
         var numberReturn = num
         if (num >= LIMIT_DATABASE) {

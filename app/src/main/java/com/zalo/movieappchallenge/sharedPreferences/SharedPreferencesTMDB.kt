@@ -1,6 +1,7 @@
 package com.zalo.movieappchallenge.sharedPreferences
 
 import com.zalo.movieappchallenge.appController.AppController
+
 class SharedPreferencesTMDB {
     var countItem: Int
         get() = prefs.getInt(COUNT_ITEM, 0)

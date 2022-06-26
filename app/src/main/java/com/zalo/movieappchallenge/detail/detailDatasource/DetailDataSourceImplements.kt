@@ -9,6 +9,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 class DetailDataSourceImplements(private val detailRepository: DetailRepository) :
     DetailDataSource {
 
+    //busca una movie en API TMdb a partir de su id
     override fun getMovieDetail(
         id: Long,
         onSuccess: (responsive: Movie) -> Unit,
@@ -23,6 +24,7 @@ class DetailDataSourceImplements(private val detailRepository: DetailRepository)
             )
     }
 
+    //busca una movie en database local a partir de su id
     override fun getMovieLocalDatabase(
         id: Long,
         onSuccess: (responsive: Movie) -> Unit,
@@ -37,6 +39,7 @@ class DetailDataSourceImplements(private val detailRepository: DetailRepository)
             )
     }
 
+    //inserta una nueva movie en database local
     override fun insertMovie(
         movie: Movie,
         onSuccess: () -> Unit,
@@ -50,10 +53,12 @@ class DetailDataSourceImplements(private val detailRepository: DetailRepository)
                 { onError(it) })
     }
 
+    //actualiza el valor del contador de numeros de item que se van guardando en database local
     override fun setCountItems(itemNumber: Int) {
        detailRepository.setCountItems(itemNumber)
     }
 
+    //obtiene el valor del contador de numeros de item que se van guardando en database local
     override fun getCountItems(): Int {
         return detailRepository.getCountItems()
     }

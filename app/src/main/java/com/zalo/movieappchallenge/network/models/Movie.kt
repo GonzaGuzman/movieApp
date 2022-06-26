@@ -5,11 +5,13 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+//modelo Movie obtenido de API TMdb
+//modelo de tabla utilizada en database Local
 @Entity(tableName = "movies")
 data class Movie(
     @PrimaryKey
     @NonNull
-    var numberItem: Int,
+    val numberItem: Int,
     @SerializedName("id") val id: Long,
     @SerializedName("title") val title: String,
     @SerializedName("overview") val overview: String,

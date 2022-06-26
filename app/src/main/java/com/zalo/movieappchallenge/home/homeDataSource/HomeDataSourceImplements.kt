@@ -7,6 +7,7 @@ import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 class HomeDataSourceImplements(private val homeRepository: HomeRepository) : HomeDataSource {
+    //obtiene de API TMdb el listado de PopularMovies de la pagina indicada
     override fun getListMovies(
         page: Int,
         onSuccess: (responsive: MoviesResponse) -> Unit,

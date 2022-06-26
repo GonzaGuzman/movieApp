@@ -18,6 +18,7 @@ import com.zalo.movieappchallenge.network.models.Movie
 import com.zalo.movieappchallenge.search.searchActivity.SearchActivity
 import com.zalo.movieappchallenge.util.KEY_SEARCH
 
+//Activity inicio, que contiene un toolbar para busquedas y un recycler para mostrar el poster de una lista de Movies
 class HomeActivity : AppCompatActivity(), HomeView {
     private lateinit var binding: ActivityMainBinding
     private lateinit var recyclerView: RecyclerView
@@ -40,6 +41,7 @@ class HomeActivity : AppCompatActivity(), HomeView {
         homePresenter.initComponent(page)
     }
 
+    // activa/desactiva progressBar y llama a metodo getMovies
     override fun getMoviesByPage(page: Int) {
         isLoading = true
         binding.progressBar.visibility = View.VISIBLE
@@ -48,6 +50,7 @@ class HomeActivity : AppCompatActivity(), HomeView {
         binding.progressBar.visibility = View.GONE
     }
 
+    //carga vista de Recycler
     override fun loadRecycler() {
         recyclerView = binding.recyclerView
         binding.recyclerView.layoutManager = gridLayoutManager
@@ -55,11 +58,14 @@ class HomeActivity : AppCompatActivity(), HomeView {
         recyclerView.adapter = adapter
     }
 
+    //actualiza la lista de adapter paginado
     override fun onPopularMoviesFetched(movies: List<Movie>) {
         adapter.appendMovies(movies)
         attachMoviesOnScrollListener()
     }
 
+    //controla los items que se muestran por recycler y actualiza la lista con una nueva pagina
+    // en caso de haber mostrado más de la mitad de los items que contiene la lista
     override fun attachMoviesOnScrollListener() {
         binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -78,10 +84,13 @@ class HomeActivity : AppCompatActivity(), HomeView {
         })
     }
 
+
+    // imprime por pantalla mensaje en caso de falla
     override fun showSnackBar(message: String) {
         Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
     }
 
+    //envia a SearchActivity la busqueda proporcionada
     override fun textSearch() {
         val intent = Intent(this, SearchActivity::class.java)
         with(binding) {
@@ -95,6 +104,7 @@ class HomeActivity : AppCompatActivity(), HomeView {
         }
     }
 
+    //columnas de GridLayout
     companion object {
         const val GRID_COLUMNS = 3
     }

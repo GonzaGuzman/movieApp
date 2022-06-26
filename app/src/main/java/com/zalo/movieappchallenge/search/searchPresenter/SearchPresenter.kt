@@ -14,6 +14,7 @@ class SearchPresenter(
 ) : SearchPresenterActions {
     private val composite = CompositeDisposable()
 
+    //utiliza query para buscar un titulo en API TMdb y actualiza adapter con lista de resultados
     override fun searchMovies(intent: Intent) {
         val search = intent.getStringExtra(KEY_SEARCH) ?: ""
         with(searchView) {
