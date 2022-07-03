@@ -18,7 +18,8 @@
         android:theme="@style/Theme.MovieAppChallenge"
         tools:targetApi="31">
         <activity
-            android:name=".splash.SplashActivity"
+            android:name=".splash.splashActivity.SplashActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,12 +30,15 @@
         </activity>
         <activity
             android:name=".search.searchActivity.SearchActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true" />
         <activity
             android:name=".detail.detailActivity.DetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true" />
         <activity
             android:name=".home.homeActivity.HomeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true" />
     </application>
 

@@ -206,7 +206,7 @@ class DetailPresenterTest {
     @Test
     fun `dataBaseLimit with argument greater than limit`() {
         //GIVEN
-        val num = 50
+        val num = 100
         //WHEN
         detailPresenter.dataBaseLimit(num)
         //THEN
@@ -318,7 +318,5 @@ class DetailPresenterTest {
         const val THIS_FAIL = "UPS ALGO SALIO MAL"
         private val MOVIE = Movie(1, 1, "movieTest", "", "", "", 0F, "")
         private val MOVIE_EMPTY = Movie(0, 0, "", "", "", "", 0F, "")
-
-
     }
 }

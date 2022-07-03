@@ -2,7 +2,6 @@ package com.zalo.movieappchallenge.detail.detailPresenter
 
 import android.content.Intent
 import android.content.res.Resources
-import android.util.Log
 import com.zalo.movieappchallenge.R
 import com.zalo.movieappchallenge.detail.detailDatasource.DetailDataSource
 import com.zalo.movieappchallenge.network.models.Movie
@@ -10,7 +9,6 @@ import com.zalo.movieappchallenge.util.LIMIT_DATABASE
 import com.zalo.movieappchallenge.util.MOVIE_ID
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
-const val TAG = "DetailPresenter"
 
 class DetailPresenter(
     private val detailView: DetailView,
@@ -21,9 +19,7 @@ class DetailPresenter(
     private val compositeDisposable = CompositeDisposable()
     override fun initComponent(intent: Intent) {
         val id = intent.getLongExtra(MOVIE_ID, 0L)
-        if (!getMovieLocalDatabase(id)) {
-            getMovieDetail(id)
-        }
+        if (!getMovieLocalDatabase(id)) getMovieDetail(id)
     }
 
     //busca una movie en API TMdb a partir de su id
@@ -35,7 +31,6 @@ class DetailPresenter(
                     insertMovie(it)
                 }, {
                     detailView.showSnackBar(resources.getString(R.string.error_message))
-                    Log.e(TAG, it.message.toString())
                 }
             )
         )
@@ -47,14 +42,12 @@ class DetailPresenter(
         compositeDisposable.add(
             detailDataSource.getMovieLocalDatabase(id,
                 {
-                    flag = if (it.id == (0L)) {
-                        false
-                    } else {
+                    flag = if (it.id == (0L)) false else {
                         detailView.retrieverExtras(it)
                         true
                     }
                 },
-                { Log.e(TAG, it.message.toString()) }
+                { }
             )
         )
         return flag
@@ -66,8 +59,8 @@ class DetailPresenter(
         val movieDb = movie.copy(numberItem = numberItem)
         compositeDisposable.add(
             detailDataSource.insertMovie(movieDb,
-                { Log.i(TAG, resources.getString(R.string.movie_saved)) },
-                { Log.e(TAG, it.message.toString()) }
+                { },
+                { }
             )
         )
     }
@@ -78,9 +71,9 @@ class DetailPresenter(
         if (num >= LIMIT_DATABASE) {
             numberReturn = 0
             detailDataSource.setCountItems(1)
-        } else {
+        } else
             detailDataSource.setCountItems(num + 1)
-        }
+
         return numberReturn
     }
 

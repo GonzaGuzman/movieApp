@@ -12,11 +12,11 @@ class MovieViewHolder(movieView: View) : RecyclerView.ViewHolder(movieView) {
     private val binding = ItemMovieBinding.bind(movieView)
 
     //carga el poster de movie en el view de recycler
-    fun bind(movie: Movie) {
+    fun bind(movie: Movie) =
         Glide.with(binding.ivMoviePoster.context)
             .load(ImageURLBuilder.getUrl(movie.posterPath))
             .placeholder(R.drawable.splash_background)
             .error(R.drawable.ic_splash_tmdb)
             .into(binding.ivMoviePoster)
-    }
 }
+

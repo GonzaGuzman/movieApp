@@ -57,8 +57,6 @@ class DetailActivity : AppCompatActivity(), DetailView {
     }
 
     // imprime por pantalla mensaje en caso de falla
-    override fun showSnackBar(message: String) {
+    override fun showSnackBar(message: String) =
         Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
-    }
-
 }

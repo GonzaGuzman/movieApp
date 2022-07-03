@@ -30,11 +30,14 @@ class SearchPresenterTest {
     @Mock
     private lateinit var mockDisposable: Disposable
 
+    @Mock
+    private lateinit var resources: Resources
+
     private lateinit var searchPresenter: SearchPresenter
 
     @Before
     fun setup() {
-        searchPresenter = SearchPresenter(searchView, searchDataSource)
+        searchPresenter = SearchPresenter(searchView, searchDataSource, resources)
     }
 
     @Test
@@ -55,12 +58,14 @@ class SearchPresenterTest {
         //GIVEN
         val intent = Mockito.mock(Intent::class.java)
         searchMovieUnsuccessfully()
+        whenever(resources.getString(R.string.error_message)).thenReturn(DetailPresenterTest.THIS_FAIL)
         //WHEN
         searchPresenter.searchMovies(intent)
         //THEN
         verify(searchView, never()).loadRecycler()
         verify(searchView, never()).onPopularMoviesFetched(any())
         verify(searchView).textSearch()
+        verify(searchView).showSnackBar(DetailPresenterTest.THIS_FAIL)
     }
 
     private fun searchMovieSuccessfully() {

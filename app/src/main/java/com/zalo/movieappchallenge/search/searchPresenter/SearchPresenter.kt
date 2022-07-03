@@ -1,16 +1,18 @@
 package com.zalo.movieappchallenge.search.searchPresenter
 
 import android.content.Intent
-import android.util.Log
+import android.content.res.Resources
+import com.zalo.movieappchallenge.R
 import com.zalo.movieappchallenge.search.searchDatasource.SearchDatasource
 import com.zalo.movieappchallenge.util.KEY_SEARCH
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
-const val TAG = "SearchPresenter"
+
 
 class SearchPresenter(
     private val searchView: SearchView,
     private val searchDatasource: SearchDatasource,
+    private val resources: Resources
 ) : SearchPresenterActions {
     private val composite = CompositeDisposable()
 
@@ -24,7 +26,7 @@ class SearchPresenter(
                         loadRecycler()
                         onPopularMoviesFetched(it.movies)
                     },
-                    { Log.e(TAG, it.message.toString()) })
+                    { searchView.showSnackBar(resources.getString(R.string.error_message))})
             )
             textSearch()
         }

@@ -24,7 +24,7 @@
                 android:background="@drawable/radius_edittext"
                 android:drawableEnd="@drawable/ic_baseline_search_24"
                 android:hint="@string/search_title"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionGo"
                 android:inputType="text"
                 android:maxLines="1"
                 android:textColor="@color/colorPrimary"

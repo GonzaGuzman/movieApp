@@ -38,17 +38,11 @@ interface APIService {
 }
 
 object APIServiceImplements {
-    fun getPopularMovies(page: Int): Single<MoviesResponse> {
-        return service.getPopularMovies(API_KEY,"es", page)
-    }
+    fun getPopularMovies(page: Int): Single<MoviesResponse> = service.getPopularMovies(API_KEY,"es", page)
 
-    fun searchMovie(query: String): Single<MoviesResponse> {
-        return service.searchMovie(API_KEY,"es", query, 1)
-    }
+    fun searchMovie(query: String): Single<MoviesResponse> = service.searchMovie(API_KEY,"es", query, 1)
 
-    fun getMovieDetail(id: Long): Single<Movie> {
-        return service.getMovieDetail(id, API_KEY,"es")
-    }
+    fun getMovieDetail(id: Long): Single<Movie> = service.getMovieDetail(id, API_KEY,"es")
 
     private val service: APIService by lazy {
         Retrofit

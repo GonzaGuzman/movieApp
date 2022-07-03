@@ -6,7 +6,5 @@ import io.reactivex.rxjava3.core.Single
 
 class HomeRepository(private val apiServiceImpl: APIServiceImplements) {
 
-    fun getPopularMovies(page: Int): Single<MoviesResponse> {
-        return apiServiceImpl.getPopularMovies(page)
-    }
+    fun getPopularMovies(page: Int): Single<MoviesResponse> = apiServiceImpl.getPopularMovies(page)
 }

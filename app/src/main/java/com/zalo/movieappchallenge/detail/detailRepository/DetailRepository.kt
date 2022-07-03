@@ -12,18 +12,11 @@ class DetailRepository(
     private val database: MovieDatabase,
 ) {
 
-    fun getMovieDetail(id: Long): Single<Movie> {
-        return apiServiceImp.getMovieDetail(id)
-    }
+    fun getMovieDetail(id: Long): Single<Movie> = apiServiceImp.getMovieDetail(id)
 
-    fun insert(movie: Movie): Completable {
-        return database.movieDao().insert(movie)
-    }
+    fun insert(movie: Movie): Completable = database.movieDao().insert(movie)
 
-    fun getMovieLocalDatabase(id: Long): Single<Movie> {
-        return database.movieDao().getById(id)
-    }
-
+    fun getMovieLocalDatabase(id: Long): Single<Movie> = database.movieDao().getById(id)
 
     fun setCountItems(itemNumber: Int) {
         SharedPreferencesTMDB().countItem = itemNumber
@@ -32,5 +25,4 @@ class DetailRepository(
     fun getCountItems(): Int {
         return SharedPreferencesTMDB().countItem
     }
-
 }

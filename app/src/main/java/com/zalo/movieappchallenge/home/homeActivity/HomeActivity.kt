@@ -86,9 +86,9 @@ class HomeActivity : AppCompatActivity(), HomeView {
 
 
     // imprime por pantalla mensaje en caso de falla
-    override fun showSnackBar(message: String) {
+    override fun showSnackBar(message: String) =
         Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
-    }
+
 
     //envia a SearchActivity la busqueda proporcionada
     override fun textSearch() {
@@ -98,7 +98,6 @@ class HomeActivity : AppCompatActivity(), HomeView {
                 if (!toolbarSearch.edtSearch.text.isNullOrEmpty()) {
                     intent.putExtra(KEY_SEARCH, toolbarSearch.edtSearch.text.toString())
                     startActivity(intent)
-                    toolbarSearch.edtSearch.text?.clear()
                 }
             }
         }

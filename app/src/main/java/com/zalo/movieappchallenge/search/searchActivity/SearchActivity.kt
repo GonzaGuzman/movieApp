@@ -28,7 +28,7 @@ class SearchActivity : AppCompatActivity(), SearchView {
         super.onCreate(savedInstanceState)
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        searchPresenter = SearchPresenter(this, searchDatasourceImplements)
+        searchPresenter = SearchPresenter(this, searchDatasourceImplements,resources)
         searchPresenter.searchMovies(intent)
     }
 
@@ -42,15 +42,12 @@ class SearchActivity : AppCompatActivity(), SearchView {
 
 
     //actualiza la lista de adapter no paginado
-    override fun onPopularMoviesFetched(movies: List<Movie>) {
+    override fun onPopularMoviesFetched(movies: List<Movie>) =
         adapter.appendMoviesSearch(movies)
-    }
-
 
     // imprime por pantalla mensaje en caso de falla
-    override fun showSnackBar(message: String) {
+    override fun showSnackBar(message: String) =
         Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
-    }
 
     //actualiza intent de a SearchActivity con la nueva busqueda proporcionada
     override fun textSearch() {
